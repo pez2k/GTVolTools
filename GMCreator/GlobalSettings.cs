@@ -18,6 +18,7 @@ namespace GMCreator
         public Color SelectedOutlineColour = Color.White;
         public Color TransparentBackgroundAreasColour = Color.Magenta;
         public int CompressionLevel = 9;
+        public bool SaveGMUncompressed = false;
         public bool ShowInnerContent = true;
         public IconImgType GT2Version = IconImgType.Invalid;
 

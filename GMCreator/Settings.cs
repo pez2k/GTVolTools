@@ -65,6 +65,7 @@ namespace GMCreator
                 bgTransparencySwatch.BackColor = settings.TransparentBackgroundAreasColour;
 
                 compressionLevelNumber.Value = settings.CompressionLevel;
+                saveGMUncompressed.Checked = settings.SaveGMUncompressed;
 
                 if (settings.GT2Version != IconImgType.Invalid)
                 {
@@ -100,6 +101,7 @@ namespace GMCreator
             settings.TransparentBackgroundAreasColour = bgTransparencySwatch.BackColor;
 
             settings.CompressionLevel = (int)compressionLevelNumber.Value;
+            settings.SaveGMUncompressed = saveGMUncompressed.Checked;
 
             IconImgType origVersion = settings.GT2Version;
             for (int i = 0; i < versionButtons.Length; ++i)

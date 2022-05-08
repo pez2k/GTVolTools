@@ -285,9 +285,19 @@ namespace GMCreator
 #if DEBUG
                     File.WriteAllBytes(Path.Combine(Globals.DebugOutputPath, "uncompressedgm.gm"), ms.ToArray());
 #endif
-                    MemoryStream compressed = Compress.GZipCompressStream(ms);
-                    byte[] compressedBytes = compressed.ToArray();
-                    File.WriteAllBytes(fileName, compressedBytes);
+                    byte[] output;
+                    if (Globals.App.SaveGMUncompressed)
+                    {
+                        output = ms.ToArray();
+                    }
+                    else
+                    {
+                        using (MemoryStream compressed = Compress.GZipCompressStream(ms))
+                        {
+                            output = compressed.ToArray();
+                        }
+                    }
+                    File.WriteAllBytes(fileName, output);
                 }
             }
             catch (InvalidBoxStateException ibse)

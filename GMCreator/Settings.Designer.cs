@@ -68,6 +68,7 @@
             this.bgTransparencySwatch = new System.Windows.Forms.PictureBox();
             this.bgTransparencyHex = new System.Windows.Forms.TextBox();
             this.bgTransparencyLabel = new System.Windows.Forms.Label();
+            this.saveGMUncompressed = new System.Windows.Forms.CheckBox();
             this.exportSettingsBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.compressionLevelNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.centralAnchorWSize)).BeginInit();
@@ -95,11 +96,12 @@
             // 
             // exportSettingsBox
             // 
+            this.exportSettingsBox.Controls.Add(this.saveGMUncompressed);
             this.exportSettingsBox.Controls.Add(this.compressionLevelNumber);
             this.exportSettingsBox.Controls.Add(this.compressionLabel);
-            this.exportSettingsBox.Location = new System.Drawing.Point(12, 264);
+            this.exportSettingsBox.Location = new System.Drawing.Point(12, 255);
             this.exportSettingsBox.Name = "exportSettingsBox";
-            this.exportSettingsBox.Size = new System.Drawing.Size(256, 58);
+            this.exportSettingsBox.Size = new System.Drawing.Size(256, 80);
             this.exportSettingsBox.TabIndex = 0;
             this.exportSettingsBox.TabStop = false;
             this.exportSettingsBox.Text = "GM Export Settings";
@@ -325,7 +327,7 @@
             // 
             this.okSettingsButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.okSettingsButton.Enabled = false;
-            this.okSettingsButton.Location = new System.Drawing.Point(168, 479);
+            this.okSettingsButton.Location = new System.Drawing.Point(169, 486);
             this.okSettingsButton.Name = "okSettingsButton";
             this.okSettingsButton.Size = new System.Drawing.Size(99, 28);
             this.okSettingsButton.TabIndex = 8;
@@ -336,7 +338,7 @@
             // cancelSettingsButton
             // 
             this.cancelSettingsButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelSettingsButton.Location = new System.Drawing.Point(11, 479);
+            this.cancelSettingsButton.Location = new System.Drawing.Point(10, 486);
             this.cancelSettingsButton.Name = "cancelSettingsButton";
             this.cancelSettingsButton.Size = new System.Drawing.Size(99, 28);
             this.cancelSettingsButton.TabIndex = 9;
@@ -354,9 +356,9 @@
             this.versionSettingsBox.Controls.Add(this.gt2VersionJP10);
             this.versionSettingsBox.Controls.Add(this.gt2VersionUS10);
             this.versionSettingsBox.Controls.Add(this.gt2VersionPALEng);
-            this.versionSettingsBox.Location = new System.Drawing.Point(14, 328);
+            this.versionSettingsBox.Location = new System.Drawing.Point(12, 341);
             this.versionSettingsBox.Name = "versionSettingsBox";
-            this.versionSettingsBox.Size = new System.Drawing.Size(253, 139);
+            this.versionSettingsBox.Size = new System.Drawing.Size(256, 139);
             this.versionSettingsBox.TabIndex = 13;
             this.versionSettingsBox.TabStop = false;
             this.versionSettingsBox.Text = "GT2 Version";
@@ -509,11 +511,21 @@
             this.bgTransparencyLabel.TabIndex = 13;
             this.bgTransparencyLabel.Text = "Transparency";
             // 
+            // saveUncompressedGM
+            // 
+            this.saveGMUncompressed.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.saveGMUncompressed.Location = new System.Drawing.Point(5, 50);
+            this.saveGMUncompressed.Name = "saveUncompressedGM";
+            this.saveGMUncompressed.Size = new System.Drawing.Size(165, 24);
+            this.saveGMUncompressed.TabIndex = 20;
+            this.saveGMUncompressed.Text = "Save Uncompressed";
+            this.saveGMUncompressed.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 518);
+            this.ClientSize = new System.Drawing.Size(276, 521);
             this.Controls.Add(this.bgColoursBox);
             this.Controls.Add(this.versionSettingsBox);
             this.Controls.Add(this.cancelSettingsButton);
@@ -589,5 +601,6 @@
         private System.Windows.Forms.PictureBox bgTransparencySwatch;
         private System.Windows.Forms.TextBox bgTransparencyHex;
         private System.Windows.Forms.Label bgTransparencyLabel;
+        private System.Windows.Forms.CheckBox saveGMUncompressed;
     }
 }
