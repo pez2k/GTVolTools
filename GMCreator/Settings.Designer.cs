@@ -325,7 +325,7 @@
             // 
             this.okSettingsButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.okSettingsButton.Enabled = false;
-            this.okSettingsButton.Location = new System.Drawing.Point(168, 433);
+            this.okSettingsButton.Location = new System.Drawing.Point(168, 479);
             this.okSettingsButton.Name = "okSettingsButton";
             this.okSettingsButton.Size = new System.Drawing.Size(99, 28);
             this.okSettingsButton.TabIndex = 8;
@@ -336,7 +336,7 @@
             // cancelSettingsButton
             // 
             this.cancelSettingsButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelSettingsButton.Location = new System.Drawing.Point(11, 433);
+            this.cancelSettingsButton.Location = new System.Drawing.Point(11, 479);
             this.cancelSettingsButton.Name = "cancelSettingsButton";
             this.cancelSettingsButton.Size = new System.Drawing.Size(99, 28);
             this.cancelSettingsButton.TabIndex = 9;
@@ -356,7 +356,7 @@
             this.versionSettingsBox.Controls.Add(this.gt2VersionPALEng);
             this.versionSettingsBox.Location = new System.Drawing.Point(14, 328);
             this.versionSettingsBox.Name = "versionSettingsBox";
-            this.versionSettingsBox.Size = new System.Drawing.Size(253, 92);
+            this.versionSettingsBox.Size = new System.Drawing.Size(253, 139);
             this.versionSettingsBox.TabIndex = 13;
             this.versionSettingsBox.TabStop = false;
             this.versionSettingsBox.Text = "GT2 Version";
@@ -364,7 +364,7 @@
             // gt2VersionJP11
             // 
             this.gt2VersionJP11.AutoSize = true;
-            this.gt2VersionJP11.Location = new System.Drawing.Point(86, 22);
+            this.gt2VersionJP11.Location = new System.Drawing.Point(12, 45);
             this.gt2VersionJP11.Name = "gt2VersionJP11";
             this.gt2VersionJP11.Size = new System.Drawing.Size(55, 17);
             this.gt2VersionJP11.TabIndex = 8;
@@ -376,7 +376,7 @@
             // gt2VersionPALSpa
             // 
             this.gt2VersionPALSpa.AutoSize = true;
-            this.gt2VersionPALSpa.Location = new System.Drawing.Point(166, 68);
+            this.gt2VersionPALSpa.Location = new System.Drawing.Point(176, 114);
             this.gt2VersionPALSpa.Name = "gt2VersionPALSpa";
             this.gt2VersionPALSpa.Size = new System.Drawing.Size(67, 17);
             this.gt2VersionPALSpa.TabIndex = 7;
@@ -388,7 +388,7 @@
             // gt2VersionPALFra
             // 
             this.gt2VersionPALFra.AutoSize = true;
-            this.gt2VersionPALFra.Location = new System.Drawing.Point(166, 45);
+            this.gt2VersionPALFra.Location = new System.Drawing.Point(176, 45);
             this.gt2VersionPALFra.Name = "gt2VersionPALFra";
             this.gt2VersionPALFra.Size = new System.Drawing.Size(63, 17);
             this.gt2VersionPALFra.TabIndex = 6;
@@ -400,7 +400,7 @@
             // gt2VersionPALGer
             // 
             this.gt2VersionPALGer.AutoSize = true;
-            this.gt2VersionPALGer.Location = new System.Drawing.Point(86, 69);
+            this.gt2VersionPALGer.Location = new System.Drawing.Point(176, 68);
             this.gt2VersionPALGer.Name = "gt2VersionPALGer";
             this.gt2VersionPALGer.Size = new System.Drawing.Size(65, 17);
             this.gt2VersionPALGer.TabIndex = 5;
@@ -412,7 +412,7 @@
             // gt2VersionPALIta
             // 
             this.gt2VersionPALIta.AutoSize = true;
-            this.gt2VersionPALIta.Location = new System.Drawing.Point(12, 69);
+            this.gt2VersionPALIta.Location = new System.Drawing.Point(176, 91);
             this.gt2VersionPALIta.Name = "gt2VersionPALIta";
             this.gt2VersionPALIta.Size = new System.Drawing.Size(60, 17);
             this.gt2VersionPALIta.TabIndex = 4;
@@ -424,7 +424,7 @@
             // gt2VersionUS12
             // 
             this.gt2VersionUS12.AutoSize = true;
-            this.gt2VersionUS12.Location = new System.Drawing.Point(12, 45);
+            this.gt2VersionUS12.Location = new System.Drawing.Point(86, 45);
             this.gt2VersionUS12.Name = "gt2VersionUS12";
             this.gt2VersionUS12.Size = new System.Drawing.Size(58, 17);
             this.gt2VersionUS12.TabIndex = 3;
@@ -448,19 +448,19 @@
             // gt2VersionUS10
             // 
             this.gt2VersionUS10.AutoSize = true;
-            this.gt2VersionUS10.Location = new System.Drawing.Point(166, 22);
+            this.gt2VersionUS10.Location = new System.Drawing.Point(86, 22);
             this.gt2VersionUS10.Name = "gt2VersionUS10";
-            this.gt2VersionUS10.Size = new System.Drawing.Size(76, 17);
+            this.gt2VersionUS10.Size = new System.Drawing.Size(84, 17);
             this.gt2VersionUS10.TabIndex = 1;
             this.gt2VersionUS10.TabStop = true;
-            this.gt2VersionUS10.Text = "US 1.0-1.1";
+            this.gt2VersionUS10.Text = "US 1.0 / 1.1";
             this.gt2VersionUS10.UseVisualStyleBackColor = true;
             this.gt2VersionUS10.CheckedChanged += new System.EventHandler(this.gt2Version_CheckedChanged);
             // 
             // gt2VersionPALEng
             // 
             this.gt2VersionPALEng.AutoSize = true;
-            this.gt2VersionPALEng.Location = new System.Drawing.Point(86, 45);
+            this.gt2VersionPALEng.Location = new System.Drawing.Point(176, 22);
             this.gt2VersionPALEng.Name = "gt2VersionPALEng";
             this.gt2VersionPALEng.Size = new System.Drawing.Size(67, 17);
             this.gt2VersionPALEng.TabIndex = 0;
@@ -513,7 +513,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 472);
+            this.ClientSize = new System.Drawing.Size(276, 518);
             this.Controls.Add(this.bgColoursBox);
             this.Controls.Add(this.versionSettingsBox);
             this.Controls.Add(this.cancelSettingsButton);
