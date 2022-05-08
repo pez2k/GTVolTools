@@ -137,10 +137,21 @@ namespace GMCreator
             return r;
         }
 
-        private void LoadAndDisplayFile(PostImageLoad afterLoadFn)
+        private void LoadAndDisplayImageFile(PostImageLoad afterLoadFn)
         {
             const string imageFilter = "GT2 Files (*.gtmp, *.gm, *.gz)|*.gtmp;*.gm;*.gz|Image Files (*.bmp, *.png, *.jpg)|*.bmp;*.png;*.jpg|All Files (*.*)|*.*";
             string fileName = GetOpenFileName(this, "Open an image", imageFilter, null);
+            if (String.IsNullOrEmpty(fileName))
+            {
+                return;
+            }
+            LoadAndDisplaySelectedFile(fileName, afterLoadFn);
+        }
+
+        private void LoadAndDisplayGMFile(PostImageLoad afterLoadFn)
+        {
+            const string gmFilter = "GT2 GM Files (*.gm, *.gz)|*.gm;*.gz|All Files (*.*)|*.*";
+            string fileName = GetOpenFileName(this, "Open a GM file", gmFilter, null);
             if (String.IsNullOrEmpty(fileName))
             {
                 return;
@@ -314,10 +325,19 @@ namespace GMCreator
                 string fgImageName = Globals.MakeDebugSaveName(true, Path.GetFileName(fileName));
                 File.Copy(fileName, fgImageName, true);
             }
-            if(info.type != Images.ImageType.GM)
+            byte[] newForegroundData;
+            if (info.type == Images.ImageType.GM)
             {
-                byte[] newForegroundData;
-                if (info.type != Images.ImageType.GMLL)
+                newForegroundData = Images.LoadGMLLData(fileName);
+                DebugLogger.Log("Main", "Got {0} bytes of GM-GMLL data from {1}", newForegroundData.Length, fileName);
+            }
+            else
+            {
+                if (info.type == Images.ImageType.GMLL)
+                {
+                    newForegroundData = File.ReadAllBytes(fileName);
+                }
+                else
                 {
                     newForegroundData = Tools.CheckConvertImageTo(info.image, Tools.ConvertType.GM);
                     if (newForegroundData == null)
@@ -326,63 +346,63 @@ namespace GMCreator
                         return;
                     }
                 }
-                else
-                {
-                    newForegroundData = File.ReadAllBytes(fileName);
-                }
                 DebugLogger.Log("Main", "Got {0} bytes of non-GM GMLL data", newForegroundData.Length);
                 if (DebugLogger.DoDebugActions())
                 {
                     string nonGMDataFile = Globals.MakeDebugSaveName(false, "{0}nongm-fg.gmll", Path.GetFileNameWithoutExtension(fileName));
                     File.WriteAllBytes(nonGMDataFile, newForegroundData);
                 }
-                layerState.On(LayerStateManager.Layers.Foreground);
-                ReplaceForegroundImage(newForegroundData, info.image);
             }
-            else // (info.type == Images.ImageType.GM)
-            {
-                // This is a hack since CloseCurrentFile() resets everything
-                // and disposes the images, but when we're reloading the foreground
-                // only, we should preserve the background, so lets do this
-                // rather than bool-ing it up just for this one case
-                Image bgBackup = null;
-                if (canvasBgImage != null)
-                {
-                    bgBackup = (Image)canvasBgImage.Clone();
-                }
-                if (!CloseCurrentFile())
-                {
-                    // didn't need it anyway
-                    if (bgBackup != null)
-                    {
-                        bgBackup.Dispose();
-                    }
-                    info.image.Dispose();
-                    return;
-                }
-                canvasBgImage = bgBackup;
-                layerState.On(LayerStateManager.Layers.Foreground);
-                byte[] gmllData = Images.LoadGMLLData(fileName);
-                ReplaceForegroundImage(gmllData, info.image);
-                GTMP.GMFile.GMFileInfo fileInf = info.gmInfo;
-                DebugLogger.Log("Main", "Got {0} bytes of GM-GMLL data from {1}, file had {2} boxes", gmllData.Length, fileName, fileInf.Boxes == null ? -1 : fileInf.Boxes.Count);
-                if (fileInf.Boxes != null)
-                {
-                    boxList.BeginUpdate();
-                    try
-                    {
-                        allBoxes.Clear();
-                        List<IBox> boxes = ConvertGMFileBoxes(fileInf.Boxes);
-                        allBoxes.Load(boxes);
-                    }
-                    finally
-                    {
-                        boxList.EndUpdate();
-                    }
-                }
-                metadataPropertyList.SelectedObject = fileInf.Metadata;
-            }
+            layerState.On(LayerStateManager.Layers.Foreground);
+            ReplaceForegroundImage(newForegroundData, info.image);
             SetTitleFileName(fileName);
+        }
+
+        private void GMFileLoad(string fileName, Images.ImageLoadResult info)
+        {
+            if (DebugLogger.DoDebugActions())
+            {
+                string fgImageName = Globals.MakeDebugSaveName(true, Path.GetFileName(fileName));
+                File.Copy(fileName, fgImageName, true);
+            }
+            // This is a hack since CloseCurrentFile() resets everything
+            // and disposes the images, but when we're reloading the foreground
+            // only, we should preserve the background, so lets do this
+            // rather than bool-ing it up just for this one case
+            Image bgBackup = null;
+            if (canvasBgImage != null)
+            {
+                bgBackup = (Image)canvasBgImage.Clone();
+            }
+            if (!CloseCurrentFile())
+            {
+                // didn't need it anyway
+                if (bgBackup != null)
+                {
+                    bgBackup.Dispose();
+                }
+                info.image.Dispose();
+                return;
+            }
+            canvasBgImage = bgBackup;
+            FGImageLoad(fileName, info);
+            GTMP.GMFile.GMFileInfo fileInf = info.gmInfo;
+            DebugLogger.Log("Main", "Got {0} GM boxes from {1}", fileInf.Boxes == null ? -1 : fileInf.Boxes.Count, fileName);
+            if (fileInf.Boxes != null)
+            {
+                boxList.BeginUpdate();
+                try
+                {
+                    allBoxes.Clear();
+                    List<IBox> boxes = ConvertGMFileBoxes(fileInf.Boxes);
+                    allBoxes.Load(boxes);
+                }
+                finally
+                {
+                    boxList.EndUpdate();
+                }
+            }
+            metadataPropertyList.SelectedObject = fileInf.Metadata;
         }
 
         private void SaveChanges(string fileName)

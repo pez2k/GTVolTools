@@ -55,6 +55,7 @@
             this.openBackgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openForegroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.loadGMFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportGMFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -173,7 +174,7 @@
             this.canvasFocusTextBox.TabIndex = 2;
             this.canvasFocusTextBox.TabStop = false;
             this.canvasFocusTextBox.Text = "Hi, this is a hack to get keyboard control working in the picturebox which normal" +
-                "ly doesn\'t support it. Please use the cursor keys to move the selected box";
+    "ly doesn\'t support it. Please use the cursor keys to move the selected box";
             this.canvasFocusTextBox.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.canvasFocusTextBox_PreviewKeyDown);
             // 
             // propertyItemContainer
@@ -294,6 +295,7 @@
             this.openBackgroundToolStripMenuItem,
             this.openForegroundToolStripMenuItem,
             this.toolStripSeparator1,
+            this.loadGMFileToolStripMenuItem,
             this.exportGMFileToolStripMenuItem,
             this.toolStripSeparator2,
             this.exitToolStripMenuItem});
@@ -334,8 +336,8 @@
             // saveGMProjectAsToolStripMenuItem
             // 
             this.saveGMProjectAsToolStripMenuItem.Name = "saveGMProjectAsToolStripMenuItem";
-            this.saveGMProjectAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
-                        | System.Windows.Forms.Keys.S)));
+            this.saveGMProjectAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
             this.saveGMProjectAsToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.saveGMProjectAsToolStripMenuItem.Text = "Save Project &As...";
             this.saveGMProjectAsToolStripMenuItem.Click += new System.EventHandler(this.saveGMProjectAsToolStripMenuItem_Click);
@@ -365,6 +367,14 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(241, 6);
+            // 
+            // loadGMFileToolStripMenuItem
+            // 
+            this.loadGMFileToolStripMenuItem.Name = "loadGMFileToolStripMenuItem";
+            this.loadGMFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.loadGMFileToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.loadGMFileToolStripMenuItem.Text = "L&oad GM File";
+            this.loadGMFileToolStripMenuItem.Click += new System.EventHandler(this.loadGMFileToolStripMenuItem_Click);
             // 
             // exportGMFileToolStripMenuItem
             // 
@@ -405,8 +415,8 @@
             // clearAllToolStripMenuItem
             // 
             this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
-            this.clearAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
-                        | System.Windows.Forms.Keys.X)));
+            this.clearAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.X)));
             this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.clearAllToolStripMenuItem.Text = "&Clear All";
             this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
@@ -604,7 +614,7 @@
         private System.Windows.Forms.ToolStripMenuItem toggleBoxesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toggleBoxContentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toggleLoggingToolStripMenuItem;
-
+        private System.Windows.Forms.ToolStripMenuItem loadGMFileToolStripMenuItem;
     }
 }
 

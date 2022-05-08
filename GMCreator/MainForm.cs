@@ -158,14 +158,21 @@ namespace GMCreator
         private void openBackgroundToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DebugLogger.Log("Main", "Opening background by menu");
-            LoadAndDisplayFile(new PostImageLoad(BGImageLoad));
+            LoadAndDisplayImageFile(new PostImageLoad(BGImageLoad));
             RedrawCanvas();
         }
 
         private void openForegroundToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DebugLogger.Log("Main", "Opening foreground by menu");
-            LoadAndDisplayFile(new PostImageLoad(FGImageLoad));
+            LoadAndDisplayImageFile(new PostImageLoad(FGImageLoad));
+            RedrawCanvas();
+        }
+
+        private void loadGMFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DebugLogger.Log("Main", "Opening GM file by menu");
+            LoadAndDisplayGMFile(new PostImageLoad(GMFileLoad));
             RedrawCanvas();
         }
 
@@ -522,7 +529,7 @@ namespace GMCreator
         {
             SetUnsavedChanges();
         }
-#endregion
+        #endregion
     }
 
     enum MouseState

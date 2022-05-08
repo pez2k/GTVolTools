@@ -110,7 +110,12 @@ If a BMP, JPG or PNG foreground image has any transparency, it will be transpare
 
 You can also load a foreground by dragging and dropping a file of the allowed type onto the canvas.
 
-Loading a GM file will clear all current boxes and replace them with the ones defined in the file. Loading an image foreground will not replace the boxes.
+Loading an image foreground will not replace the current boxes.
+
+
+Load GM File
+------------------------
+Loading a GM file will clear the foreground image, all current boxes, and the file metadata, then replace them with the ones defined in the file.
 
 
 Export GM File
