@@ -493,8 +493,8 @@ namespace GTMP
             CanCursor = 1, // can move cursor here with d-pad
             DefaultCursorPos = 2, // cursor goes here on screen entry
 
-            // This doesn't seem to do anything
-            // ProbeCarInfo = 4, // the extradata has a car id in addition to a link
+            // This doesn't seem to do anything, but is used and needed to display existing values properly
+            HasCarID = 4, // the extradata has a car id in addition to a link
 
             RaceMode = 8, // extra data is a race name to query for data
 
